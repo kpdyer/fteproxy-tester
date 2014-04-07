@@ -21,6 +21,9 @@ echo "deb http://deb.torproject.org/torproject.org tor-experimental-0.2.5.x-whee
 gpg --keyserver keys.gnupg.net --recv 886DDD89
 gpg --export A3C4F0F979CAA22CDBA8F512EE8CBC9E886DDD89 | sudo apt-key add -
 
+# do update
+apt-get -y update
+
 # install fteproxy repo
 echo "deb http://fteproxy.org/deb/ stable/" >> /etc/apt/sources.list
 gpg --keyserver keys.gnupg.net --recv 6B898EE18FBA6390
