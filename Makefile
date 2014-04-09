@@ -1,11 +1,21 @@
-all: gnulinux-i386
+all: debian-7.1.0-amd64 debian-7.1.0-i386 ubuntu-12.04-i386
 
-gnulinux-i386:
-	@cd tests/gnulinux-i386; \
+debian-7.1.0-amd64:
+	@cd tests/debian-7.1.0-amd64; \
+	vagrant up
+
+debian-7.1.0-i386:
+	@cd tests/debian-7.1.0-i386; \
+	vagrant up
+
+ubuntu-12.04-i386:
+	@cd tests/ubuntu-12.04-i386; \
 	vagrant up
 
 clean:
-	@cd tests/gnulinux-i386; \
+	@cd tests/debian-7.1.0-amd64; \
 	vagrant destroy -f
-	@cd tests/gnulinux-i386; \
-	rm -rvf .vagrant
+	@cd tests/debian-7.1.0-i386; \
+	vagrant destroy -f
+	@cd tests/ubuntu-12.04-i386; \
+	vagrant destroy -f
