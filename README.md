@@ -22,13 +22,13 @@ Example
 
 ```console
 $ python main
-config			install_method	result
-debian-7.1.0-i386	pip		SUCCESS
-debian-7.1.0-i386	tar		SUCCESS
-debian-7.1.0-amd64	pip		SUCCESS
-debian-7.1.0-amd64	tar		SUCCESS
+config                install_method	result
+debian-7.1.0-i386     pip               SUCCESS
+debian-7.1.0-i386     tar               SUCCESS
+debian-7.1.0-amd64    pip               SUCCESS
+debian-7.1.0-amd64    tar               SUCCESS
 ...
-windows-xp-i386		zip		SUCCESS
-windows-7-amd64		zip		SUCCESS
-windows-81-amd64	zip		SUCCESS
+windows-xp-i386       zip               SUCCESS
+windows-7-amd64       zip               SUCCESS
+windows-81-amd64      zip               SUCCESS
 ```
