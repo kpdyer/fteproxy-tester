@@ -20,7 +20,7 @@ Example
 -------
 
 ```console
-$ python main
+$ python main.py
 config                install_method	result
 debian-7.1.0-i386     pip               SUCCESS
 debian-7.1.0-i386     tar               SUCCESS
