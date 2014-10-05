@@ -1,0 +1,13 @@
+DEBIAN_FRONTEND=noninteractive
+apt-get -y update
+apt-get -y install python-dev python-pip libyaml-dev libgmp-dev build-essential
+apt-get install -f
+
+# install fteproxy
+sudo pip install fteproxy
+
+# test fteproxy
+fteproxy --quiet --mode test
+
+# show success
+touch success

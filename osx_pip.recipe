@@ -1,0 +1,10 @@
+virtualenv fteproxy
+cd fteproxy
+./bin/pip install fteproxy
+
+# test fteproxy
+./bin/fteproxy --quiet --mode test
+
+# show success
+cd ..
+touch success

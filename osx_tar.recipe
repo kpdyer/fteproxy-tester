@@ -1,0 +1,10 @@
+wget https://fteproxy.org/dist/0.2.18/fteproxy-0.2.18-darwin-i386.tar.gz
+tar xvf fteproxy-0.2.18-darwin-i386.tar.gz
+cd fteproxy-*
+
+# test fteproxy
+./fteproxy.bin --quiet --mode test
+
+# show success
+cd ..
+touch success
