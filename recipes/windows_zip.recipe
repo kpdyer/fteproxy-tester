@@ -1,0 +1,10 @@
+wget https://fteproxy.org/dist/0.2.18/fteproxy-0.2.18-windows-i386.zip
+unzip fteproxy-0.2.18-windows-i386.zip
+cd fteproxy-*
+
+# test fteproxy
+./fteproxy.exe --quiet --mode test
+
+# show success
+cd ..
+touch success

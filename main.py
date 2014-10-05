@@ -5,14 +5,14 @@ import string
 
 SANDBOX_DIR = "sandbox"
 
-VAGRANT_CONFIG_TEMPLATE = open("vagrant_template.recipe").read()
-BOOTSTRAP = open("bootstrap.recipe").read()
-LINUX_PIP_INSTALL = open("linux_pip.recipe").read()
-LINUX_TAR32_INSTALL = open("linux_tar32.recipe").read()
-LINUX_TAR64_INSTALL = open("linux_tar64.recipe").read()
-OSX_PIP_INSTALL = open("osx_pip.recipe").read()
-OSX_TAR_INSTALL = open("osx_tar.recipe").read()
-WINDOWS_ZIP_INSTALL = open("windows_zip.recipe").read()
+VAGRANT_CONFIG_TEMPLATE = open("recipe/vagrant_template.recipe").read()
+BOOTSTRAP = open("recipe/bootstrap.recipe").read()
+LINUX_PIP_INSTALL = open("recipe/linux_pip.recipe").read()
+LINUX_TAR32_INSTALL = open("recipe/linux_tar32.recipe").read()
+LINUX_TAR64_INSTALL = open("recipe/linux_tar64.recipe").read()
+OSX_PIP_INSTALL = open("recipe/osx_pip.recipe").read()
+OSX_TAR_INSTALL = open("recipe/osx_tar.recipe").read()
+WINDOWS_ZIP_INSTALL = open("recipe/windows_zip.recipe").read()
 
 BOXES_LINUX32 = ["debian-7.1.0-i386",
                  "ubuntu-12.04-i386",
@@ -67,30 +67,34 @@ def doInstallWithoutVagrant(boxName, installName, installScript):
 def main():
   print "config\t\tinstall_method\tresult"
 
-  # # Linux 32-bit
-  # for boxName in BOXES_LINUX32:
-  #   resetSandbox()
-  #   doInstallWithVagrant(boxName, "pip", LINUX_PIP_INSTALL)
-  #   resetSandbox()
-  #   doInstallWithVagrant(boxName, "tar", LINUX_TAR32_INSTALL)
-  #
-  # # Linux 64-bit
-  # for boxName in BOXES_LINUX64:
-  #   resetSandbox()
-  #   doInstallWithVagrant(boxName, "pip", LINUX_PIP_INSTALL)
-  #   resetSandbox()
-  #   doInstallWithVagrant(boxName, "tar", LINUX_TAR64_INSTALL)
-  #
-  # # OSX
-  # resetSandbox()
-  # doInstallWithoutVagrant("osx-10.9", "pip", OSX_PIP_INSTALL)
-  # resetSandbox()
-  # doInstallWithoutVagrant("osx-10.9", "tar", OSX_TAR_INSTALL)
+  # Linux 32-bit
+  for boxName in BOXES_LINUX32:
+    resetSandbox()
+    doInstallWithVagrant(boxName, "pip", LINUX_PIP_INSTALL)
+    resetSandbox()
+    doInstallWithVagrant(boxName, "tar", LINUX_TAR32_INSTALL)
+
+  # Linux 64-bit
+  for boxName in BOXES_LINUX64:
+    resetSandbox()
+    doInstallWithVagrant(boxName, "pip", LINUX_PIP_INSTALL)
+    resetSandbox()
+    doInstallWithVagrant(boxName, "tar", LINUX_TAR64_INSTALL)
+
+  # OSX
+  resetSandbox()
+  doInstallWithoutVagrant("osx-10.9", "pip", OSX_PIP_INSTALL)
+  resetSandbox()
+  doInstallWithoutVagrant("osx-10.9", "tar", OSX_TAR_INSTALL)
 
   # Windows
   resetSandbox()
-  doInstallWithVagrant("windows-7", "zip", WINDOWS_ZIP_INSTALL)
-  VAGRANT_DEFAULT_PROVIDER=parallels
+  doInstallWithVagrant("windows-xp-i386", "zip", WINDOWS_ZIP_INSTALL)
+  resetSandbox()
+  doInstallWithVagrant("windows-7-amd64", "zip", WINDOWS_ZIP_INSTALL)
+  resetSandbox()
+  doInstallWithVagrant("windows-8.1-amd64", "zip", WINDOWS_ZIP_INSTALL)
+
 
 if __name__ == "__main__":
   main()
