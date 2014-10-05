@@ -11,11 +11,10 @@ The following platforms are supported via VirtualBox.
 * Ubuntu 12.04 (64-bit)
 * Ubuntu 14.04 (32-bit)
 * Ubuntu 14.04 (64-bit)
+* OSX 10.6+
 * Windows XP (32-bit)
 * Windows 7 (64-bit)
 * Windows 8.1 (64-bit)
-
-And OSX is supported via native testing.
 
 Example
 -------
